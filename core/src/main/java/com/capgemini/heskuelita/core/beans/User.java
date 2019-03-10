@@ -1,5 +1,4 @@
 package com.capgemini.heskuelita.core.beans;
-
 import java.time.LocalDate;
 import lombok.*;
 

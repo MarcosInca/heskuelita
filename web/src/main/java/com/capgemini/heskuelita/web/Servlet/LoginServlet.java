@@ -1,6 +1,8 @@
 package com.capgemini.heskuelita.web.Servlet;
 
 import com.capgemini.heskuelita.core.beans.User;
+import com.capgemini.heskuelita.data.db.DBConnectionManager;
+import com.capgemini.heskuelita.data.impl.UserDaoJDBC;
 import com.capgemini.heskuelita.service.ISecurityService;
 import com.capgemini.heskuelita.service.impl.SecurityServiceImpl;
 
@@ -23,7 +25,16 @@ public class LoginServlet extends HttpServlet {
     @Override
     public void init (ServletConfig config) throws ServletException {
 
-        ServletContext contet
+        ServletContext context = config.getServletContext();
+
+        DBConnectionManager manager = (DBConnectionManager) context.getAttribute("db");
+
+        try {
+            this.securityService = new SecurityServiceImpl (new UserDaoJDBC(manager.getConnection()));
+
+        } catch (Exception e) {
+            throw new ServletException(e);
+        }
     }
 
     @Override
@@ -40,6 +51,7 @@ public class LoginServlet extends HttpServlet {
             resp.sendRedirect("home.jsp");
 
         } catch (Exception e) {
+            e.printStackTrace();
             resp.sendRedirect("err.jsp");
         }
     }

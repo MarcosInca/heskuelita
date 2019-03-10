@@ -11,9 +11,9 @@
 <form action="login" method="post">
     User: <input type="text" name="user">
     <br>
-    Password: <input type="text" name="password">
+    Password: <input type="text" name="pwd">
     <br>
-    <input type="submit" value="Login"></input>
+    <input type="submit" value="Login">
 </form>
 
 </body>

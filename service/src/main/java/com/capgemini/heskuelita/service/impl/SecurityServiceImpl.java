@@ -1,6 +1,6 @@
 package com.capgemini.heskuelita.service.impl;
 import com.capgemini.heskuelita.core.beans.User;
-import com.capgemini.heskuelita
+import com.capgemini.heskuelita.data.IUserDao;
 import com.capgemini.heskuelita.service.ISecurityService;
 import com.capgemini.heskuelita.service.SecurityException;
 
@@ -18,8 +18,8 @@ public class SecurityServiceImpl implements ISecurityService {
         try {
             user = this.userDao.login (user.getUserName(), user.getPassword());
 
-        } catch ()
-
-
+        } catch (Exception e) {
+            throw new SecurityException(e);
+        }
     }
 }

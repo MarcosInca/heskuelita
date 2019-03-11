@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Log In</title>
+    <title>Register</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
@@ -24,9 +24,9 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form action="login" method="post" class="login100-form validate-form">
+            <form action="register" method="post" class="login100-form validate-form">
                 <span class="login100-form-title p-b-34">
-                    Account Login
+                    Register
                 </span>
 
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20">
@@ -35,24 +35,16 @@
                 </div>
 
                 <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20">
-                    <input class="input100" type="password" placeholder="Password" name="pwd">
+                    <input class="input100" type="text" placeholder="Password" name="pwd">
                     <span class="focus-input100"></span>
                 </div>
 
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
-                        Sing In
-                    </button>
+                <div class="wrap-input100 rs3-wrap-input100 validate-input m-b-20">
+                    <input class="input100" type="text" placeholder="Email" name="email">
+                    <span class="focus-input100"></span>
                 </div>
 
-                <div class="w-full text-center p-t-27 p-b-239"></div>
-
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
-                        <a href="register.jsp">Sing Up</a>
-                    </button>
-                </div>
-
+                <div class="w-full text-center p-t-35 p-b-239"></div>
                 <div class="w-full text-center p-t-35 p-b-239"></div>
             </form>
 

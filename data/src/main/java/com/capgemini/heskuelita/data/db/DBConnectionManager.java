@@ -15,6 +15,10 @@ public class DBConnectionManager {
     private BasicDataSource dataSource;
 
 
+	public DBConnectionManager() {
+		this.setup ();
+	}
+
 	public DBConnectionManager (String url, String u, String p, String d) {
 
 	    super ();

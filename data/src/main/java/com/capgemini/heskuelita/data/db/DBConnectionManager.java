@@ -36,13 +36,13 @@ public class DBConnectionManager {
         // Create a new Datasource.
         this.dataSource = new BasicDataSource ();
 
-        this.dataSource.setUrl (dbURL);
-        this.dataSource.setUsername (user);
-        this.dataSource.setPassword (password);
+        this.dataSource.setUrl ("jdbc:postgresql://localhost:5432/postgres");
+        this.dataSource.setUsername ("postgres");
+        this.dataSource.setPassword ("Minca123");
         this.dataSource.setMinIdle (50);
         this.dataSource.setMaxIdle (100);
         this.dataSource.setMaxOpenPreparedStatements (1000);
-        this.dataSource.setDriverClassName (driver);
+        this.dataSource.setDriverClassName ("org.postgresql.Driver");
     }
 
 	

@@ -16,4 +16,37 @@ public class RegisterServlet extends HttpServlet {
         super ();
     }
 
+    @Override
+    public void init (ServletConfig config){
+
+        ServletContext context = config.getServletContext();
+
+        DBConnectionManager manager = (DBConnectionManager) context.getAttribute("db");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
+
+        User user = new User ();
+
+        this.insertTable("user",
+                user.setUserName (req.getParameter("username")),
+                user.setPassword (req.getParameter("pwd")),
+                user.setPassword (req.getParameter("email")));
+
+        resp.sendRedirect("index.jsp");
+
+    }
+
+    public void insertTable (String username, String pwd, String email) {
+
+
+        PreparedStatement pstm = manager.getConnection ().prepareStatement ("INSERT INTO users VALUES (?, ?, ?)");
+
+        pstm.setString (1, username);
+        pstm.setString (2, pwd);
+        pstm.setString (3, email);
+
+        pstm.executeUpdate ();
+    }
 }

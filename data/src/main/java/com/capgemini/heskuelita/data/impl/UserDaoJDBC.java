@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class UserDaoJDBC implements IUserDao {
+
     private Connection conn;
 
     public UserDaoJDBC (Connection conn) {
@@ -18,7 +19,7 @@ public class UserDaoJDBC implements IUserDao {
     @Override
     public User login (String userName, String password) {
 
-        User us = null;
+        User us;
 
         try {
             Statement stm = this.conn.createStatement();
@@ -26,19 +27,13 @@ public class UserDaoJDBC implements IUserDao {
 
             while (resultSet.next()) {
                 us = new User ();
-                us.setEmail (resultSet.getString("us_email"));
                 us.setUserName (userName);
                 break;
             }
 
-
         } catch (Exception e) {
             throw new DataException(e);
         }
-
-        if (us == null) {
-            throw new DataException ("Usuario " + userName + " desconocido");
-        }
-        return us;
+        return null;
     }
 }

@@ -1,5 +1,4 @@
 package com.capgemini.heskuelita.core.beans;
-import java.time.LocalDate;
 import lombok.*;
 
 @Data
@@ -9,6 +8,12 @@ public class User {
     private String userName;
     private String password;
     private String email;
-    private LocalDate created;
-    private LocalDate updated;
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+    public String getUserName (){
+        return this.userName;
+    }
+
 }

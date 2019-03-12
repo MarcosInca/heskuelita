@@ -8,7 +8,7 @@
 
 <body>
 <%User us = (User)session.getAttribute ("user");%>
-Bienvenido : <%=us.getUserName() + " [ " + us.getEmail()  + " ]"%>
+Bienvenido : <%=us.getUserName()%>
 </body>
 
 </html>

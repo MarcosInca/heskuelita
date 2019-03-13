@@ -44,6 +44,12 @@
                     <span class="focus-input100"></span>
                 </div>
 
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Register
+                    </button>
+                </div>
+
                 <div class="w-full text-center p-t-35 p-b-239"></div>
                 <div class="w-full text-center p-t-35 p-b-239"></div>
             </form>

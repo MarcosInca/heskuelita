@@ -6,7 +6,7 @@
 </head>
 
 <body>
-error
+ERROR
 </body>
 
 </html>

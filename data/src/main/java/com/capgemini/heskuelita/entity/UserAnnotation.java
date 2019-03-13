@@ -9,14 +9,17 @@ public class UserAnnotation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "id_seq")
     @SequenceGenerator(name = "id_seq", sequenceName = "id_seq")
-    @Column (name="users_id", nullable=false, unique=true)
+    @Column (name="us_id", nullable=false, unique=true)
     private int id;
 
-    @Column(name="user_username", length=48, nullable=false)
+    @Column(name="us_username", length=28, nullable=false)
     private String username;
 
-    @Column(name="pw", length=48, nullable=false)
+    @Column(name="us_pw", length=28, nullable=false)
     private String pw;
+
+    @Column(name="us_email", length=28, nullable=false)
+    private String email;
 
     public UserAnnotation() {
 
@@ -42,5 +45,13 @@ public class UserAnnotation {
 
     public void setPw(String pw) {
         this.pw = pw;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

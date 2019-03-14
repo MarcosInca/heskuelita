@@ -31,6 +31,12 @@ public class UserAnnotation {
         this.pw = pw;
     }
 
+    public UserAnnotation(String username, String pw, String email) {
+        this.username = username;
+        this.pw = pw;
+        this.email = email;
+    }
+
     public String getUsername() {
         return username;
     }

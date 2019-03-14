@@ -5,16 +5,15 @@ import com.capgemini.heskuelita.entity.UserAnnotation;
 import com.capgemini.heskuelita.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.util.List;
 
 public class UserDaoJDBC implements IUserDao {
 
     private static SessionFactory sessionFactory;
-
-    private Connection conn;
 
     public UserDaoJDBC (SessionFactory sessionFactory) {
 
@@ -27,26 +26,53 @@ public class UserDaoJDBC implements IUserDao {
         sessionFactory = HibernateUtil.getSessionFactory ();
     }
 
+    public static void destroy () {
+
+        sessionFactory.close ();
+    }
+
     @Override
     public UserAnnotation login (String userName, String password) {
 
         Session session = null;
-        UserAnnotation us;
+        final String filter1 = userName;
+        final String filter2 = password;
 
         try {
             session = sessionFactory.openSession ();
-            Statement stm = this.conn.createStatement();
-            ResultSet resultSet = stm.executeQuery ("SELECT * from users WHERE us_username='" + userName + "' AND us_pw='" + password + "'");
+            Criterion criterion1 = Restrictions.like("user", filter1);
+            Criterion criterion2 = Restrictions.like("pwd", filter2);
 
-            while (resultSet.next()) {
-                us = new UserAnnotation ();
-                us.setUsername (userName);
-                break;
-            }
 
         } catch (Exception e) {
+
             throw new DataException(e);
-        }
+
+        } finally { session.close(); }
         return null;
     }
+
+    @Override
+    public void register (String userName, String password, String email) {
+
+        Session session = null;
+        Transaction tx = null;
+
+        try {
+            session = sessionFactory.openSession ();
+            tx = session.beginTransaction ();
+
+          UserAnnotation us = new UserAnnotation("userName","password", "email");
+
+            session.save(us);
+
+            tx.commit ();
+
+        } catch (Exception ex) {
+
+            tx.rollback ();
+
+        } finally { session.close (); }
+    }
 }
+

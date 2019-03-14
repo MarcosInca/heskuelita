@@ -22,4 +22,15 @@ public class SecurityServiceImpl implements ISecurityService {
             throw new SecurityException(e);
         }
     }
+
+    @Override
+    public void register (UserAnnotation user) throws SecurityException {
+
+        try {
+            this.userDao.register (user.getUsername(), user.getPw(), user.getEmail());
+
+        } catch (Exception e) {
+            throw new SecurityException(e);
+        }
+    }
 }

@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
@@ -37,19 +38,28 @@ public class UserDaoJDBC implements IUserDao {
         Session session = null;
         final String filter1 = userName;
         final String filter2 = password;
+        UserAnnotation userL = null;
 
         try {
             session = sessionFactory.openSession ();
             Criterion criterion1 = Restrictions.like("user", filter1);
             Criterion criterion2 = Restrictions.like("pwd", filter2);
+            LogicalExpression andExp = Restrictions.and (criterion1, criterion2);
+            List<UserAnnotation> list = (List<UserAnnotation>) session.createCriteria (UserAnnotation.class).add (andExp).list ();
 
+            if(!list.isEmpty()){
+                for (UserAnnotation e : list){
+                    userL = new UserAnnotation();
+                    userL.setUsername(e.getUsername());
+                }
+            }
 
         } catch (Exception e) {
 
             throw new DataException(e);
 
         } finally { session.close(); }
-        return null;
+        return userL;
     }
 
     @Override

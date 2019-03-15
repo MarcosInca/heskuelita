@@ -26,7 +26,6 @@ public class LoginServlet extends HttpServlet {
 
         SessionFactory manager = HibernateUtil.getSessionFactory();
 
-
         try {
 
             this.securityService = new SecurityServiceImpl(new UserDaoJDBC(manager));

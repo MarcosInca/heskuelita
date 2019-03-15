@@ -6,6 +6,4 @@ public interface IUserDao {
 
     UserAnnotation login (String userName, String password);
     void register (String userName, String password, String email);
-
-
 }

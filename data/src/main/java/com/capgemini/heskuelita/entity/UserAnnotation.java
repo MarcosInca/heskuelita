@@ -26,11 +26,6 @@ public class UserAnnotation {
         super ();
     }
 
-    public UserAnnotation(String username, String pw) {
-        this.username = username;
-        this.pw = pw;
-    }
-
     public UserAnnotation(String username, String pw, String email) {
         this.username = username;
         this.pw = pw;

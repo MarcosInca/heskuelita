@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
@@ -16,7 +15,7 @@
         <property name="format_sql">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
 
-        <mapping class="com.capgemini.heskuelita.entity.UserAnnotation" />
+        <mapping class="com.capgemini.heskuelita.entity.UserAnnotation"/>
 
     </session-factory>
 

@@ -41,16 +41,16 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        UserAnnotation register = new UserAnnotation ();
-        register.setUsername(req.getParameter("user"));
-        register.setPw(req.getParameter("pwd"));
-        register.setEmail(req.getParameter("email"));
+        UserAnnotation user = new UserAnnotation ();
+        user.setUsername(req.getParameter("username"));
+        user.setPw(req.getParameter("pwd"));
+        user.setEmail(req.getParameter("email"));
 
         try {
 
-            this.securityService.register(register);
+            this.securityService.register(user);
             HttpSession session = req.getSession();
-            session.setAttribute("user", register);
+            session.setAttribute("user", user);
             resp.sendRedirect("index.jsp");
 
         } catch (Exception e){

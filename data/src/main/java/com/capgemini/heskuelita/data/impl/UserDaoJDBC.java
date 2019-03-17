@@ -9,12 +9,16 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Restrictions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 public class UserDaoJDBC implements IUserDao {
 
     private static SessionFactory sessionFactory;
+
+    private static final Logger logger = LoggerFactory.getLogger (UserDaoJDBC.class);
 
     public UserDaoJDBC (SessionFactory sessionFactory) {
 
@@ -45,9 +49,9 @@ public class UserDaoJDBC implements IUserDao {
             Criterion criterion1 = Restrictions.like("user", filter1);
             Criterion criterion2 = Restrictions.like("pwd", filter2);
             LogicalExpression andExp = Restrictions.and (criterion1, criterion2);
-            List<UserAnnotation> list = (List<UserAnnotation>) session.createCriteria (UserAnnotation.class).add (andExp).list ();
+            List<UserAnnotation> list = (List<UserAnnotation>) session.createCriteria (UserAnnotation.class).add(andExp).list();
 
-            if(!list.isEmpty()){
+            if ( !list.isEmpty() )  {
                 for (UserAnnotation e : list){
                     userL = new UserAnnotation();
                     userL.setUsername(e.getUsername());
@@ -56,7 +60,8 @@ public class UserDaoJDBC implements IUserDao {
 
         } catch (Exception e) {
 
-            throw new DataException(e);
+            String m = String.format ("Problems executing login %s", e.getMessage ());
+            logger.error (m);
 
         } finally { session.close(); }
         return userL;
@@ -72,7 +77,7 @@ public class UserDaoJDBC implements IUserDao {
             session = sessionFactory.openSession ();
             tx = session.beginTransaction ();
 
-          UserAnnotation us = new UserAnnotation("userName","password", "email");
+          UserAnnotation us = new UserAnnotation(userName,password, email);
 
             session.save(us);
 

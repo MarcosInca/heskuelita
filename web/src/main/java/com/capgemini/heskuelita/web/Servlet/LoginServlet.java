@@ -29,8 +29,8 @@ public class LoginServlet extends HttpServlet {
         try {
 
             this.securityService = new SecurityServiceImpl(new UserDaoJDBC(manager));
+
         } catch (Exception e) {
-            e.printStackTrace();
             throw new ServletException(e);
         }
     }
@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         UserAnnotation user = new UserAnnotation();
-        user.setUsername (req.getParameter("user"));
+        user.setUsername (req.getParameter("username"));
         user.setPw( req.getParameter("pwd"));
 
         try {

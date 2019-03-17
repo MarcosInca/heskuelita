@@ -2,7 +2,7 @@ package com.capgemini.heskuelita.entity;
 
 import javax.persistence.*;
 
-@Entity (name =  "User")
+@Entity (name =  "user")
 @Table (name = "users")
 public class UserAnnotation {
 
@@ -26,10 +26,10 @@ public class UserAnnotation {
         super ();
     }
 
-    public UserAnnotation(String username, String pw, String email) {
-        this.username = username;
-        this.pw = pw;
-        this.email = email;
+    public UserAnnotation(String us_username, String us_pw, String us_email) {
+        this.username = us_username;
+        this.pw = us_pw;
+        this.email = us_email;
     }
 
     public String getUsername() {

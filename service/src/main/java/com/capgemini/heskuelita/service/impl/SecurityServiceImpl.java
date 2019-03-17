@@ -5,6 +5,7 @@ import com.capgemini.heskuelita.service.ISecurityService;
 import com.capgemini.heskuelita.service.SecurityException;
 
 public class SecurityServiceImpl implements ISecurityService {
+
     private IUserDao userDao;
 
     public SecurityServiceImpl (IUserDao userDao) {

@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20">
-                    <input class="input100" type="text" placeholder="Username" name="user">
+                    <input class="input100" type="text" placeholder="Username" name="username">
                     <span class="focus-input100"></span>
                 </div>
 

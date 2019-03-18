@@ -46,8 +46,8 @@ public class UserDaoJDBC implements IUserDao {
 
         try {
             session = sessionFactory.openSession ();
-            Criterion criterion1 = Restrictions.like("user", filter1);
-            Criterion criterion2 = Restrictions.like("pwd", filter2);
+            Criterion criterion1 = Restrictions.like("username", filter1);
+            Criterion criterion2 = Restrictions.like("pw", filter2);
             LogicalExpression andExp = Restrictions.and (criterion1, criterion2);
             List<UserAnnotation> list = (List<UserAnnotation>) session.createCriteria (UserAnnotation.class).add(andExp).list();
 
@@ -64,11 +64,19 @@ public class UserDaoJDBC implements IUserDao {
             logger.error (m);
 
         } finally { session.close(); }
+
+
+        if (userL == null) {
+            throw new DataException ("Usuario " + userName + " desconocido");
+        }
+
+
+
         return userL;
     }
 
     @Override
-    public void register (String firstName, String lastName, String birthday, String sex, String us_username, String us_pw, String us_email) {
+    public void register (String firstname, String lastname, String birthday, String sex, String username, String pw, String email) {
 
         Session session = null;
         Transaction tx = null;
@@ -77,7 +85,7 @@ public class UserDaoJDBC implements IUserDao {
             session = sessionFactory.openSession ();
             tx = session.beginTransaction ();
 
-          UserAnnotation us = new UserAnnotation(firstName,lastName, birthday, sex, us_username, us_pw, us_email);
+          UserAnnotation us = new UserAnnotation(firstname, lastname, birthday, sex, username, pw, email);
 
             session.save(us);
 

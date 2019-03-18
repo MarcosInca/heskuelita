@@ -12,11 +12,11 @@ public class UserAnnotation {
     @Column (name="id", nullable=false, unique=true)
     private int id;
 
-    @Column(name="firstName", length=28, nullable=false)
-    private String firstName;
+    @Column(name="firstname", length=28, nullable=false)
+    private String firstname;
 
-    @Column(name="lastName", length=28, nullable=false)
-    private String lastName;
+    @Column(name="lastname", length=28, nullable=false)
+    private String lastname;
 
     @Column(name="birthday", length=28, nullable=false)
     private String birthday;
@@ -38,30 +38,30 @@ public class UserAnnotation {
         super ();
     }
 
-    public UserAnnotation(String firstName, String lastName, String birthday, String sex, String us_username, String us_pw, String us_email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public UserAnnotation(String firstname, String lastname, String birthday, String sex, String username, String pw, String email) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.birthday = birthday;
         this.sex = sex;
-        this.username = us_username;
-        this.pw = us_pw;
-        this.email = us_email;
+        this.username = username;
+        this.pw = pw;
+        this.email = email;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getBirthday() {
@@ -78,6 +78,10 @@ public class UserAnnotation {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getUsername() {

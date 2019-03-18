@@ -1,9 +1,9 @@
 <%@ page import="com.capgemini.heskuelita.entity.UserAnnotation" contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Welcome Page</title>
+    <title>Register</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
@@ -28,11 +28,10 @@
                     <%UserAnnotation us = (UserAnnotation)session.getAttribute ("user");%>
                     Bienvenido : <%=us.getUsername()%>
             </span>
+            <div class="login100-more" style="background-image: url('images/Student1.png');"></div>
         </div>
     </div>
 </div>
-
-</body>
 
 <div id="dropDownSelect1"></div>
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>

@@ -30,6 +30,26 @@
                 </span>
 
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20">
+                    <input class="input100" type="text" placeholder="First Name" name="firstName">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20">
+                    <input class="input100" type="text" placeholder="Last Name" name="lastName">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20">
+                    <input class="input100" type="text" placeholder="Birthday" name="birthday">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20">
+                    <input class="input100" type="text" placeholder="Sex" name="sex">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20">
                     <input class="input100" type="text" placeholder="Username" name="user">
                     <span class="focus-input100"></span>
                 </div>

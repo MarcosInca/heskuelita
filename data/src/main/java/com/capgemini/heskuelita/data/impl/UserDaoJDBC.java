@@ -68,7 +68,7 @@ public class UserDaoJDBC implements IUserDao {
     }
 
     @Override
-    public void register (String userName, String password, String email) {
+    public void register (String firstName, String lastName, String birthday, String sex, String us_username, String us_pw, String us_email) {
 
         Session session = null;
         Transaction tx = null;
@@ -77,7 +77,7 @@ public class UserDaoJDBC implements IUserDao {
             session = sessionFactory.openSession ();
             tx = session.beginTransaction ();
 
-          UserAnnotation us = new UserAnnotation(userName,password, email);
+          UserAnnotation us = new UserAnnotation(firstName,lastName, birthday, sex, us_username, us_pw, us_email);
 
             session.save(us);
 

@@ -42,6 +42,10 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         UserAnnotation user = new UserAnnotation ();
+        user.setFirstName(req.getParameter("firstName"));
+        user.setLastName(req.getParameter("lastName"));
+        user.setBirthday(req.getParameter("birthday"));
+        user.setSex(req.getParameter("sex"));
         user.setUsername(req.getParameter("username"));
         user.setPw(req.getParameter("pwd"));
         user.setEmail(req.getParameter("email"));

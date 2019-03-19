@@ -26,17 +26,21 @@
 
 <div class="limiter">
     <div class="container-login100">
-            <div class="error-template">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form">
+                <span class="login100-form-title p-b-34">
                 <h1>Username not found</h1>
-                <div class="error-details">
                     Sorry, we couldn't find your account
-                </div>
                 <br>
                 <div class="error-actions">
                     <a href="index.jsp" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
                         Return to Home </a>
                 </div>
-            </div>
+                    </span>
+            </form>
+
+            <div class="login100-more" style="background-image: url('images/Robot1.png');"></div>
+        </div>
     </div>
 </div>
 

@@ -24,10 +24,18 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <span class="login100-form-title p-b-34">
+            <form class="login100-form validate-form">
+                <span class="login100-form-title p-b-34">
                     <%UserAnnotation us = (UserAnnotation)session.getAttribute ("user");%>
                     Bienvenido : <%=us.getUsername()%>
-            </span>
+                </span>
+
+                <div class="w-full text-center p-t-35 p-b-239"></div>
+                <div class="w-full text-center p-t-35 p-b-239"></div>
+                <div class="w-full text-center p-t-35 p-b-239"></div>
+                <div class="w-full text-center p-t-35 p-b-239"></div>
+            </form>
+
             <div class="login100-more" style="background-image: url('images/Student1.png');"></div>
         </div>
     </div>
